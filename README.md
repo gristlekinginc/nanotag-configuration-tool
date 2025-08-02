@@ -8,6 +8,11 @@ This works if you're using the [MetSci Console](https://console.meteoscientific.
 
 The only thing that'll really catch you out is not remembering that Port 28 is for minutes and Port 29 is for seconds.  Ask me how I know.
 
+## ⚠️ **Disclaimer**
+
+This is an independent tool for configuring Nanothings devices. 
+Not affiliated with or endorsed by Nanothings or whoever bought them.
+
 
 ## **Quick Start**
 
