@@ -9,7 +9,7 @@ This works if you're using the [MetSci Console](https://console.meteoscientific.
 The only thing that'll really catch you out is not remembering that Port 28 is for minutes and Port 29 is for seconds.  Ask me how I know.
 
 
-## 🎯 **Quick Start**
+## **Quick Start**
 
 Generate a 1-minute interval configuration:
 
@@ -49,7 +49,7 @@ nanothings/
 └── CHANGELOG.md        # Version history
 ```
 
-## ✅ **Payload Format**
+## **Payload Format**
 
 **Format**: `[2-byte record seconds][2-byte report seconds]` (4 bytes total)
 
@@ -87,7 +87,7 @@ import NanotagConfigurator from '@site/src/components/NanotagConfigurator';
 <NanotagConfigurator />
 ```
 
-## 📊 **Usage with ChirpStack**
+## **Usage with ChirpStack**
 
 1. **Generate payload** using any of the tools
 2. **Send downlink** via ChirpStack console:
@@ -96,7 +96,7 @@ import NanotagConfigurator from '@site/src/components/NanotagConfigurator';
    - **Confirmed**: Recommended
 3. **Verify**: Device should acknowledge on fPort 25
 
-## 📋 **fPort Selection - Minutes vs Seconds**
+# **fPort Selection - Minutes vs Seconds**
 
 - **fPort 28**: Send when values are in **minutes** (e.g., `00010001` = 1min/1min)
 - **fPort 29**: Send when values are in **seconds** (e.g., `003C003C` = 60s/60s) 
@@ -117,7 +117,7 @@ These tools generate the correct 4-byte payload format for Nanothings Nanotag co
 - [Payload Format](./docs/payload_format.md) - Technical details about the format
 - [CHANGELOG](./CHANGELOG.md) - Version history
 
-## 🤝 **Contributing**
+##  **Testing**
 
 All tools are cross-verified to generate identical payloads. Run the test suite:
 
@@ -128,5 +128,3 @@ node tools/test_tools.js
 **Expected**: All tests pass ✅
 
 ---
-
-**Ready for nanotag configuration with verified payload formats! 🎯**
