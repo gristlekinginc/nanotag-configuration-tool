@@ -4,7 +4,8 @@ You used to be able to go to a Nanothings/Nanotags site and configure downloads,
 
 Me & Cursor built this so I could embed it on the MetSci site and just make it generally available.
 
-**Status**: ✅ **Ready** - All tools verified and tested
+This works on the [MetSci Console](https://console.meteoscientific.com/front/).
+
 
 ## 🎯 **Quick Start**
 
