@@ -1,0 +1,1089 @@
+[
+    {
+        "deduplicationId": "c4bc4503-3c79-414e-b047-dac3a97acd7a",
+        "time": "2025-08-02T00:32:27.031+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "queueItemId": "db3c4891-b821-4bfd-9c5d-0e3f8a024a30",
+        "acknowledged": true,
+        "fCntDown": 2
+    },
+    {
+        "deduplicationId": "c4bc4503-3c79-414e-b047-dac3a97acd7a",
+        "time": "2025-08-02T00:32:27.031+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 16,
+        "fPort": 21,
+        "confirmed": false,
+        "data": "C98AAAAEaI1cpg==",
+        "object": {
+            "voltageMv": 3039,
+            "uplinkType": "device_status_response",
+            "batteryStatus": "Excellent"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 31096,
+                "gwTime": "2025-08-02T00:32:27.031+00:00",
+                "nsTime": "2025-08-02T00:32:27.164668980+00:00",
+                "rssi": -64,
+                "snr": 13.2,
+                "context": "zPddQQ==",
+                "metadata": {
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_lat": "32.767389594032025",
+                    "network": "helium_iot",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_long": "-117.116476590884162"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 24567,
+                "gwTime": "2025-08-02T00:32:27.037+00:00",
+                "nsTime": "2025-08-02T00:32:27.208921718+00:00",
+                "rssi": -120,
+                "snr": -15.5,
+                "context": "ABqVsw==",
+                "metadata": {
+                    "gateway_lat": "32.763340069122563",
+                    "gateway_long": "-117.115951265748436",
+                    "network": "helium_iot",
+                    "regi": "US915",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_h3index": "8c29a418c8a8dff"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 903900000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "downlinkId": 2943865162,
+        "time": "2025-08-02T00:32:25.014575595+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "queueItemId": "db3c4891-b821-4bfd-9c5d-0e3f8a024a30",
+        "fCntDown": 2,
+        "gatewayId": "4c2df4804f9994f9",
+        "txInfo": {
+            "frequency": 925700000,
+            "power": 21,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 500000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5",
+                    "polarizationInversion": true
+                }
+            },
+            "timing": {
+                "delay": {
+                    "delay": "1s"
+                }
+            },
+            "context": "zM+2lA=="
+        }
+    },
+    {
+        "deduplicationId": "de7fca03-c318-471e-9ea5-4e19e3c81d56",
+        "time": "2025-08-02T00:32:24.446+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "queueItemId": "4fde0ab7-f7a0-4dba-a5ad-6ca185a75333",
+        "acknowledged": true,
+        "fCntDown": 1
+    },
+    {
+        "deduplicationId": "de7fca03-c318-471e-9ea5-4e19e3c81d56",
+        "time": "2025-08-02T00:32:24.446+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 15,
+        "fPort": 0,
+        "confirmed": false,
+        "data": "",
+        "object": {},
+        "rxInfo": [
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 37391,
+                "gwTime": "2025-08-02T00:32:24.446+00:00",
+                "nsTime": "2025-08-02T00:32:24.577251936+00:00",
+                "rssi": -120,
+                "snr": -16,
+                "context": "//Lr9A==",
+                "metadata": {
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "gateway_lat": "32.763340069122563",
+                    "regi": "US915",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_h3index": "8c29a418c8a8dff",
+                    "network": "helium_iot",
+                    "gateway_long": "-117.115951265748436"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 34725,
+                "gwTime": "2025-08-02T00:32:24.433+00:00",
+                "nsTime": "2025-08-02T00:32:24.531763092+00:00",
+                "rssi": -64,
+                "snr": 12,
+                "context": "zM+2lA==",
+                "metadata": {
+                    "gateway_name": "sweet-sage-pike",
+                    "network": "helium_iot",
+                    "regi": "US915",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_h3index": "8c29a418c176dff"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904700000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "downlinkId": 3954920772,
+        "time": "2025-08-02T00:32:23.633206814+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "queueItemId": "4fde0ab7-f7a0-4dba-a5ad-6ca185a75333",
+        "fCntDown": 1,
+        "gatewayId": "4c2df4804f9994f9",
+        "txInfo": {
+            "frequency": 926900000,
+            "power": 21,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 500000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5",
+                    "polarizationInversion": true
+                }
+            },
+            "timing": {
+                "delay": {
+                    "delay": "1s"
+                }
+            },
+            "context": "zLpQsQ=="
+        }
+    },
+    {
+        "deduplicationId": "14fc096f-4e47-4195-8e0d-4b11f08c2c3c",
+        "time": "2025-08-02T00:32:23.030+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 14,
+        "fPort": 26,
+        "confirmed": false,
+        "data": "AAEdPx1DHTYdPQ==",
+        "object": {
+            "uplinkType": "report_frame",
+            "temperatures": [
+                {
+                    "temperatureFahrenheit": 76.77,
+                    "temperatureCelsius": 24.87
+                },
+                {
+                    "temperatureFahrenheit": 76.84,
+                    "temperatureCelsius": 24.91
+                },
+                {
+                    "temperatureCelsius": 24.78,
+                    "temperatureFahrenheit": 76.6
+                },
+                {
+                    "temperatureFahrenheit": 76.73,
+                    "temperatureCelsius": 24.85
+                }
+            ],
+            "frameId": 1
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 13523,
+                "gwTime": "2025-08-02T00:32:23.030+00:00",
+                "nsTime": "2025-08-02T00:32:23.148642967+00:00",
+                "rssi": -64,
+                "snr": 13.5,
+                "context": "zLpQsQ==",
+                "metadata": {
+                    "network": "helium_iot",
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "regi": "US915"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 49183,
+                "gwTime": "2025-08-02T00:32:23.044+00:00",
+                "nsTime": "2025-08-02T00:32:23.192499183+00:00",
+                "rssi": -119,
+                "snr": -15.5,
+                "context": "/92GGQ==",
+                "metadata": {
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "gateway_long": "-117.115951265748436",
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c8a8dff",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_lat": "32.763340069122563",
+                    "network": "helium_iot"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 905100000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "2f700d6d-5553-4b37-b952-ac3329351d55",
+        "time": "2025-08-01T23:32:21.940+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 13,
+        "fPort": 25,
+        "confirmed": false,
+        "data": "AwAPADwA",
+        "object": {
+            "confirmedReportPeriod": 60,
+            "uplinkType": "configuration_acknowledgement",
+            "confirmedRecordPeriod": 15,
+            "confirmedConfigurationUnitText": "minutes",
+            "confirmedConfigurationUnit": 0
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "fc658cc9d30d08fe",
+                "uplinkId": 62597,
+                "gwTime": "2025-08-01T23:32:21.940+00:00",
+                "nsTime": "2025-08-01T23:32:22.043263579+00:00",
+                "rssi": -126,
+                "snr": -14.2,
+                "context": "9iS4bQ==",
+                "metadata": {
+                    "gateway_id": "112RWpZjJ5CEfQCc2ac1WfSV2kVo6gZFj5KvPWKZcXpxGhdjC4Cf",
+                    "gateway_name": "dancing-daffodil-cheetah",
+                    "gateway_long": "-117.114778638004736",
+                    "gateway_h3index": "8c29a41aa643bff",
+                    "gateway_lat": "32.757496091277147",
+                    "network": "helium_iot",
+                    "regi": "US915"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 5260,
+                "gwTime": "2025-08-01T23:32:21.941+00:00",
+                "nsTime": "2025-08-01T23:32:22.041278838+00:00",
+                "rssi": -64,
+                "snr": 12.2,
+                "context": "9hYJiw==",
+                "metadata": {
+                    "gateway_lat": "32.767389594032025",
+                    "network": "helium_iot",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "regi": "US915",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_name": "sweet-sage-pike"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904500000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "4acc020b-a0f3-45d5-a337-d12b6a3ddbfe",
+        "time": "2025-08-01T23:32:11.938+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 12,
+        "fPort": 25,
+        "confirmed": false,
+        "data": "AgAPADwA",
+        "object": {
+            "confirmedRecordPeriod": 15,
+            "confirmedConfigurationUnit": 0,
+            "uplinkType": "configuration_acknowledgement",
+            "confirmedConfigurationUnitText": "minutes",
+            "confirmedReportPeriod": 60
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 49901,
+                "gwTime": "2025-08-01T23:32:11.938+00:00",
+                "nsTime": "2025-08-01T23:32:12.037490495+00:00",
+                "rssi": -63,
+                "snr": 12.8,
+                "context": "9X1vNQ==",
+                "metadata": {
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_long": "-117.116476590884162",
+                    "network": "helium_iot",
+                    "gateway_name": "sweet-sage-pike",
+                    "regi": "US915",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_h3index": "8c29a418c176dff"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 4117,
+                "gwTime": "2025-08-01T23:32:11.948+00:00",
+                "nsTime": "2025-08-01T23:32:12.043659581+00:00",
+                "rssi": -118,
+                "snr": -15,
+                "context": "KKCk8A==",
+                "metadata": {
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "network": "helium_iot",
+                    "gateway_lat": "32.763340069122563",
+                    "regi": "US915",
+                    "gateway_long": "-117.115951265748436",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_h3index": "8c29a418c8a8dff"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904100000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "953d4a83-1644-48ce-b477-aad7c5bcc41a",
+        "time": "2025-08-01T23:32:01.966+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 11,
+        "fPort": 25,
+        "confirmed": false,
+        "data": "AQAPADwA",
+        "object": {
+            "confirmedConfigurationUnit": 0,
+            "uplinkType": "configuration_acknowledgement",
+            "confirmedReportPeriod": 60,
+            "confirmedConfigurationUnitText": "minutes",
+            "confirmedRecordPeriod": 15
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 30819,
+                "gwTime": "2025-08-01T23:32:01.966+00:00",
+                "nsTime": "2025-08-01T23:32:02.070762345+00:00",
+                "rssi": -117,
+                "snr": -15.8,
+                "context": "KAgJ2g==",
+                "metadata": {
+                    "gateway_long": "-117.115951265748436",
+                    "gateway_lat": "32.763340069122563",
+                    "gateway_h3index": "8c29a418c8a8dff",
+                    "regi": "US915",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "network": "helium_iot",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 59504,
+                "gwTime": "2025-08-01T23:32:01.939+00:00",
+                "nsTime": "2025-08-01T23:32:02.073789996+00:00",
+                "rssi": -63,
+                "snr": 9.2,
+                "context": "9OTUIQ==",
+                "metadata": {
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_lat": "32.767389594032025",
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "network": "helium_iot",
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904900000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "966a27cc-70ab-4543-b240-6bf701f468bd",
+        "time": "2025-08-01T23:31:26.976+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 10,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvp",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 55800,
+                "gwTime": "2025-08-01T23:31:26.976+00:00",
+                "nsTime": "2025-08-01T23:31:27.074484718+00:00",
+                "rssi": -118,
+                "snr": -13.5,
+                "context": "JfJe5w==",
+                "metadata": {
+                    "network": "helium_iot",
+                    "gateway_long": "-117.115951265748436",
+                    "regi": "US915",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_lat": "32.763340069122563",
+                    "gateway_h3index": "8c29a418c8a8dff",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 2857,
+                "gwTime": "2025-08-01T23:31:26.960+00:00",
+                "nsTime": "2025-08-01T23:31:27.058742102+00:00",
+                "rssi": -64,
+                "snr": 12.2,
+                "context": "8s8pNQ==",
+                "metadata": {
+                    "regi": "US915",
+                    "network": "helium_iot",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 903900000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "6d11e37c-fa9a-444c-a014-42357063c144",
+        "time": "2025-08-01T23:30:56.960+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 9,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Sgvs",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 18158,
+                "gwTime": "2025-08-01T23:30:56.960+00:00",
+                "nsTime": "2025-08-01T23:30:57.101869376+00:00",
+                "rssi": -63,
+                "snr": 9.8,
+                "context": "8QVjwA==",
+                "metadata": {
+                    "gateway_lat": "32.767389594032025",
+                    "network": "helium_iot",
+                    "regi": "US915",
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_h3index": "8c29a418c176dff"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 64995,
+                "gwTime": "2025-08-01T23:30:56.984+00:00",
+                "nsTime": "2025-08-01T23:30:57.080537359+00:00",
+                "rssi": -118,
+                "snr": -13.5,
+                "context": "JCiZbA==",
+                "metadata": {
+                    "gateway_h3index": "8c29a418c8a8dff",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "network": "helium_iot",
+                    "gateway_lat": "32.763340069122563",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_long": "-117.115951265748436",
+                    "regi": "US915"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904300000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "3a4b31bb-2551-45b1-a4ab-1cfd8acc601b",
+        "time": "2025-08-01T23:30:26.958+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 8,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvs",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 24514,
+                "gwTime": "2025-08-01T23:30:26.958+00:00",
+                "nsTime": "2025-08-01T23:30:27.058248239+00:00",
+                "rssi": -65,
+                "snr": 13,
+                "context": "7zuXuA==",
+                "metadata": {
+                    "gateway_name": "sweet-sage-pike",
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "network": "helium_iot",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_long": "-117.116476590884162"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 48375,
+                "gwTime": "2025-08-01T23:30:26.975+00:00",
+                "nsTime": "2025-08-01T23:30:27.082562150+00:00",
+                "rssi": -117,
+                "snr": -13.8,
+                "context": "Il7NXw==",
+                "metadata": {
+                    "regi": "US915",
+                    "gateway_long": "-117.115951265748436",
+                    "gateway_lat": "32.763340069122563",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "network": "helium_iot",
+                    "gateway_h3index": "8c29a418c8a8dff"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 905300000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "d792e634-157d-420e-8de4-a4a28d697d5d",
+        "time": "2025-08-01T23:29:56.960+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 7,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvs",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 18825,
+                "gwTime": "2025-08-01T23:29:56.960+00:00",
+                "nsTime": "2025-08-01T23:29:57.074088374+00:00",
+                "rssi": -63,
+                "snr": 12.2,
+                "context": "7XHSow==",
+                "metadata": {
+                    "gateway_long": "-117.116476590884162",
+                    "network": "helium_iot",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_name": "sweet-sage-pike",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "regi": "US915"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904700000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "d2352a35-5548-40f4-ba1a-5c82c3b4a324",
+        "time": "2025-08-01T23:29:26.975+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 6,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvw",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "da69554133a6c1b8",
+                "uplinkId": 64934,
+                "gwTime": "2025-08-01T23:29:26.975+00:00",
+                "nsTime": "2025-08-01T23:29:27.078814420+00:00",
+                "rssi": -119,
+                "snr": -16,
+                "context": "Hss5Lw==",
+                "metadata": {
+                    "network": "helium_iot",
+                    "gateway_id": "112TkneXic2oSNUHLDFtNJBpkpzYTeDzDj3gmpNSTGP54ByF8wPS",
+                    "gateway_lat": "32.763340069122563",
+                    "regi": "US915",
+                    "gateway_long": "-117.115951265748436",
+                    "gateway_name": "cool-mossy-ostrich",
+                    "gateway_h3index": "8c29a418c8a8dff"
+                },
+                "crcStatus": "CRC_OK"
+            },
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 39830,
+                "gwTime": "2025-08-01T23:29:26.959+00:00",
+                "nsTime": "2025-08-01T23:29:27.064367358+00:00",
+                "rssi": -63,
+                "snr": 12.2,
+                "context": "66gGog==",
+                "metadata": {
+                    "gateway_h3index": "8c29a418c176dff",
+                    "regi": "US915",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_name": "sweet-sage-pike",
+                    "network": "helium_iot",
+                    "gateway_lat": "32.767389594032025"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 903900000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "ad47fc73-fa03-4248-ac6e-8ea70efbabfb",
+        "time": "2025-08-01T23:28:56.955+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 5,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvw",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 55606,
+                "gwTime": "2025-08-01T23:28:56.955+00:00",
+                "nsTime": "2025-08-01T23:28:57.054796541+00:00",
+                "rssi": -64,
+                "snr": 9,
+                "context": "6d5A6A==",
+                "metadata": {
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_name": "sweet-sage-pike",
+                    "network": "helium_iot",
+                    "gateway_lat": "32.767389594032025",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904300000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    },
+    {
+        "deduplicationId": "75e08e6c-5d23-493c-8da1-74f9cfed855a",
+        "time": "2025-08-01T23:28:26.958+00:00",
+        "deviceInfo": {
+            "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+            "tenantName": "Example Tenant",
+            "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+            "applicationName": "Example Application",
+            "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+            "deviceProfileName": "NanoTag - US915",
+            "deviceName": "Example Device",
+            "devEui": "0123456789abcdef",
+            "deviceClassEnabled": "CLASS_A",
+            "tags": {}
+        },
+        "devAddr": "78000004",
+        "adr": false,
+        "dr": 0,
+        "fCnt": 4,
+        "fPort": 28,
+        "confirmed": false,
+        "data": "Swvw",
+        "object": {
+            "uplinkType": "configuration_request"
+        },
+        "rxInfo": [
+            {
+                "gatewayId": "4c2df4804f9994f9",
+                "uplinkId": 24137,
+                "gwTime": "2025-08-01T23:28:26.958+00:00",
+                "nsTime": "2025-08-01T23:28:27.094057884+00:00",
+                "rssi": -64,
+                "snr": 13.5,
+                "context": "6BR3qQ==",
+                "metadata": {
+                    "gateway_name": "sweet-sage-pike",
+                    "regi": "US915",
+                    "gateway_h3index": "8c29a418c176dff",
+                    "gateway_long": "-117.116476590884162",
+                    "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                    "gateway_lat": "32.767389594032025",
+                    "network": "helium_iot"
+                },
+                "crcStatus": "CRC_OK"
+            }
+        ],
+        "txInfo": {
+            "frequency": 904900000,
+            "modulation": {
+                "lora": {
+                    "bandwidth": 125000,
+                    "spreadingFactor": 10,
+                    "codeRate": "CR_4_5"
+                }
+            }
+        },
+        "regionConfigId": "us915_1"
+    }
+]

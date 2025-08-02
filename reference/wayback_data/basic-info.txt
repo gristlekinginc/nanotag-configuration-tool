@@ -1,0 +1,8 @@
+Report Period must be a multiple of Record Period
+
+Record period - Frequency that the NanoTag records a temperature reading, minimum of 10 seconds
+Report period - Frequency that the NanoTag transmits temperature readings, minimum of 30 seconds for US915, AU915, and AS923.  Minimum of 2 minutes for EU868
+
+Use Port 28 for minutes and Port 29 for seconds
+Use Base64 value on Helium network
+Confirmed downlinks are recommended on Helium network

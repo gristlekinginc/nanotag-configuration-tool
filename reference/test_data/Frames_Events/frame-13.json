@@ -1,0 +1,81 @@
+{
+    "phy_payload": {
+        "mhdr": {
+            "m_type": "UnconfirmedDataUp",
+            "major": "LoRaWANR1"
+        },
+        "mic": [
+            228,
+            172,
+            104,
+            72
+        ],
+        "payload": {
+            "f_port": 25,
+            "fhdr": {
+                "devaddr": "78000004",
+                "f_cnt": 13,
+                "f_ctrl": {
+                    "ack": false,
+                    "adr": false,
+                    "adr_ack_req": false,
+                    "class_b": false,
+                    "f_opts_len": 0,
+                    "f_pending": false
+                },
+                "f_opts": []
+            },
+            "frm_payload": "03000f003c00"
+        }
+    },
+    "rx_info": [
+        {
+            "context": "9iS4bQ==",
+            "crcStatus": "CRC_OK",
+            "gatewayId": "fc658cc9d30d08fe",
+            "gwTime": "2025-08-01T23:32:21.940+00:00",
+            "metadata": {
+                "gateway_h3index": "8c29a41aa643bff",
+                "gateway_id": "112RWpZjJ5CEfQCc2ac1WfSV2kVo6gZFj5KvPWKZcXpxGhdjC4Cf",
+                "gateway_lat": "32.757496091277147",
+                "gateway_long": "-117.114778638004736",
+                "gateway_name": "dancing-daffodil-cheetah",
+                "network": "helium_iot",
+                "regi": "US915"
+            },
+            "nsTime": "2025-08-01T23:32:22.043263579+00:00",
+            "rssi": -126,
+            "snr": -14.199999809265137,
+            "uplinkId": 62597
+        },
+        {
+            "context": "9hYJiw==",
+            "crcStatus": "CRC_OK",
+            "gatewayId": "4c2df4804f9994f9",
+            "gwTime": "2025-08-01T23:32:21.941+00:00",
+            "metadata": {
+                "gateway_h3index": "8c29a418c176dff",
+                "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                "gateway_lat": "32.767389594032025",
+                "gateway_long": "-117.116476590884162",
+                "gateway_name": "sweet-sage-pike",
+                "network": "helium_iot",
+                "regi": "US915"
+            },
+            "nsTime": "2025-08-01T23:32:22.041278838+00:00",
+            "rssi": -64,
+            "snr": 12.199999809265137,
+            "uplinkId": 5260
+        }
+    ],
+    "tx_info": {
+        "frequency": 904500000,
+        "modulation": {
+            "lora": {
+                "bandwidth": 125000,
+                "codeRate": "CR_4_5",
+                "spreadingFactor": 10
+            }
+        }
+    }
+}

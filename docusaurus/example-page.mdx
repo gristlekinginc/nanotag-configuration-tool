@@ -1,0 +1,94 @@
+---
+sidebar_position: 4
+title: Nanotag Configuration
+description: Configure your Nanothings Nanotags for optimal data collection intervals
+keywords: [nanotag, configuration, downlink, chirpstack, lorawan]
+---
+
+import NanotagConfigurator from '@site/src/components/NanotagConfigurator';
+
+# Nanotag Configuration Tool
+
+This tool helps you reconfigure your Nanotag's reporting intervals by generating the proper downlink payloads for ChirpStack.
+
+## How It Works
+
+Your Nanothings Nanotags can be reconfigured remotely via LoRaWAN downlinks using the official 4-byte payload format. The device:
+
+1. **Receives** configuration commands on fPort 25 (4-byte payload format)
+2. **Acknowledges** the new settings 
+3. **Applies** the new recording and reporting intervals
+
+### Payload Format Discovery
+
+The correct payload format was discovered from the [original Nanothings configuration tool](https://web.archive.org/web/20241208203034/https://www.nanothingsinc.com/configuration-response-downlink-encoder) preserved on the Wayback Machine:
+
+**Format**: `[2-byte record period in seconds][2-byte report period in seconds]`
+- **Length**: 4 bytes total
+- **Encoding**: Big-endian 16-bit integers  
+- **Units**: Always seconds
+
+## Interactive Configuration Tool
+
+<NanotagConfigurator />
+
+## Understanding the Configuration
+
+### Record vs Report Period
+
+- **Record Period**: How often the device takes temperature measurements
+- **Report Period**: How often the device transmits data via LoRaWAN
+
+For example:
+- Record every 15 minutes, Report every 60 minutes = 4 readings per transmission
+- Record every 1 minute, Report every 1 minute = 1 reading per transmission
+
+### Time Units
+
+- **Minutes**: For longer intervals (recommended for battery life)
+- **Seconds**: For high-frequency monitoring (shorter battery life)
+
+## Verified Payload Examples
+
+These payloads were verified against the original Nanothings tool data:
+
+| Configuration | Payload | Breakdown |
+|---------------|---------|-----------|
+| 1 minute intervals | `003C003C` | 60 seconds record + 60 seconds report |
+| 5 minute intervals | `012C012C` | 300 seconds record + 300 seconds report |
+| 30 minute intervals | `07080708` | 1800 seconds record + 1800 seconds report |
+| 1 hour intervals | `0E100E10` | 3600 seconds record + 3600 seconds report |
+
+## Battery Life Considerations
+
+| Interval | Estimated Battery Life | Use Case |
+|----------|----------------------|----------|
+| 1 minute | ~3 months | Real-time monitoring |
+| 5 minutes | ~8 months | Frequent updates |
+| 30 minutes | ~2+ years | Standard monitoring |
+| 1 hour | ~3+ years | Long-term deployment |
+
+## Troubleshooting
+
+### Device Not Acknowledging Configuration
+
+1. **Check Queue**: Verify the downlink is queued in ChirpStack
+2. **Wait for Uplink**: Device only listens after transmitting (Class A)
+3. **Verify fPort**: Must be exactly `25`
+4. **Check Payload**: Ensure hex format is correct
+
+### Configuration Not Applied
+
+1. **Look for Acknowledgement**: Check Events tab for `configuration_acknowledgement`
+2. **Wait Full Cycle**: New intervals may take 1-2 cycles to take effect
+3. **Check Values**: Verify the acknowledged values match your intent
+
+## Next Steps
+
+After configuring your device:
+
+1. **Monitor Events**: Watch for the configuration acknowledgement
+2. **Verify Timing**: Confirm the new reporting interval is working
+3. **Adjust as Needed**: Fine-tune based on your monitoring requirements
+
+For technical details about the payload format and device behavior, see the [Technical Specifications](./technical-specs).

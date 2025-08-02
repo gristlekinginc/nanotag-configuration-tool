@@ -1,0 +1,15 @@
+Memory Type	Non-Volatile FLASH
+Sampling Interval	Programmable
+Operation Temperature	-30°C to 60°C (-22°F to 140°F)
+Temperature Accuracy	±0.5°C (±1°F), NIST Traceable
+Temperature Resolution	0.1°C (0.1°F)
+Activation Method Wireless	Rip™ Sensor (Buttonless)
+Wireless Protocol	LoRaWAN
+Operating Frequency Band	902-928 MHz ISM; 868 MHz
+Wireless Range	Up to 5 Miles (Line of Sight)
+Battery Type	LiMnO2
+Nominal Battery Capacity	600mAh
+Housing	Water and Dirt Resistant, Food-Grade Packaging
+Mounting	Adhesive Backing with Release Liner
+Dimensions	95x130x1.5mm
+Weight	6.5g

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanothings Nanotag Configuration Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #666;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .preset-btn {
+            background-color: #28a745;
+            margin-bottom: 10px;
+        }
+        .preset-btn:hover {
+            background-color: #1e7e34;
+        }
+        .result {
+            background-color: #e9f7ef;
+            border: 1px solid #27ae60;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .hex-output {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .current-status {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏷️ Nanothings Nanotag Configuration Tool</h1>
+        
+        <div class="current-status">
+            <h3>📊 Configuration Tool</h3>
+            <p><strong>Format:</strong> 4-byte verified payload for Nanothings Nanotags</p>
+            <p><strong>Compatibility:</strong> All Nanothings Nanotag devices</p>
+            <p><strong>Target fPort:</strong> 25 (configuration port)</p>
+        </div>
+
+        <div class="section">
+            <h3>⚡ Quick Presets</h3>
+            <button class="preset-btn" onclick="setPreset(60, 60, 1)">1 Minute Interval</button>
+            <button class="preset-btn" onclick="setPreset(300, 300, 1)">5 Minutes Interval</button>
+            <button class="preset-btn" onclick="setPreset(1800, 1800, 1)">30 Minutes Interval</button>
+            <button class="preset-btn" onclick="setPreset(3600, 3600, 1)">1 Hour Interval</button>
+        </div>
+
+        <div class="section">
+            <h3>🔧 Custom Configuration</h3>
+            
+            <div class="input-group">
+                <label for="recordPeriod">Record Period:</label>
+                <input type="number" id="recordPeriod" value="60" min="1" max="65535">
+            </div>
+            
+            <div class="input-group">
+                <label for="reportPeriod">Report Period:</label>
+                <input type="number" id="reportPeriod" value="60" min="1" max="65535">
+            </div>
+            
+            <div class="input-group">
+                <label for="timeUnit">Time Unit:</label>
+                <select id="timeUnit">
+                    <option value="0">Minutes</option>
+                    <option value="1" selected>Seconds</option>
+                </select>
+            </div>
+            
+            <button onclick="generateConfig()">Generate Configuration</button>
+        </div>
+
+        <div id="result" style="display: none;">
+            <div class="result">
+                <h3>📤 Downlink Configuration</h3>
+                <p><strong>fPort:</strong> 25</p>
+                <p><strong>Hex Payload:</strong></p>
+                <div class="hex-output" id="hexPayload"></div>
+                <div id="configDetails"></div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 How to Send Downlink via ChirpStack</h3>
+            <ol>
+                <li>Log into your ChirpStack console</li>
+                <li>Navigate to your application and device</li>
+                <li>Go to the "Queue" tab</li>
+                <li>Click "Enqueue downlink"</li>
+                <li>Set fPort to <strong>25</strong></li>
+                <li>Paste the generated hex payload</li>
+                <li>Set confirmed to <strong>true</strong> (recommended)</li>
+                <li>Click "Enqueue"</li>
+            </ol>
+            <p><em>💡 Tip: The device will acknowledge the configuration on fPort 25 when it receives and applies the new settings.</em></p>
+        </div>
+    </div>
+
+    <script>
+        function setPreset(record, report, unit) {
+            document.getElementById('recordPeriod').value = record;
+            document.getElementById('reportPeriod').value = report;
+            document.getElementById('timeUnit').value = unit;
+            generateConfig();
+        }
+
+        function generateConfig() {
+            const recordPeriod = parseInt(document.getElementById('recordPeriod').value);
+            const reportPeriod = parseInt(document.getElementById('reportPeriod').value);
+            const timeUnit = parseInt(document.getElementById('timeUnit').value);
+
+            // Validate inputs
+            if (recordPeriod < 1 || recordPeriod > 65535) {
+                alert('Record period must be between 1 and 65535');
+                return;
+            }
+            if (reportPeriod < 1 || reportPeriod > 65535) {
+                alert('Report period must be between 1 and 65535');
+                return;
+            }
+
+            // Generate hex payload using official Nanothings format:
+            // Bytes 0-1: Record period in seconds (big endian)
+            // Bytes 2-3: Report period in seconds (big endian)
+            
+            // Convert to seconds if needed
+            const recordSeconds = recordPeriod * (timeUnit === 0 ? 60 : 1);
+            const reportSeconds = reportPeriod * (timeUnit === 0 ? 60 : 1);
+            
+            const recordHex = recordSeconds.toString(16).padStart(4, '0').toUpperCase();
+            const reportHex = reportSeconds.toString(16).padStart(4, '0').toUpperCase();
+            
+            const hexPayload = recordHex + reportHex;
+            
+            // Display result
+            document.getElementById('hexPayload').textContent = hexPayload;
+            
+            const unitText = timeUnit === 0 ? 'minutes' : 'seconds';
+            const configDetails = `
+                <p><strong>Configuration Details:</strong></p>
+                <ul>
+                    <li>Record Period: ${recordPeriod} ${unitText} (${recordSeconds} seconds)</li>
+                    <li>Report Period: ${reportPeriod} ${unitText} (${reportSeconds} seconds)</li>
+                    <li>Payload Length: 4 bytes</li>
+                </ul>
+                <p><em>The device will send data every ${reportPeriod} ${unitText} and record measurements every ${recordPeriod} ${unitText}.</em></p>
+            `;
+            
+            document.getElementById('configDetails').innerHTML = configDetails;
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll to result
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Generate default configuration on load
+        window.onload = function() {
+            generateConfig();
+        };
+    </script>
+</body>
+</html>

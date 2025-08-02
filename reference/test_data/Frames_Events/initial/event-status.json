@@ -1,0 +1,20 @@
+{
+    "deduplicationId": "33cf0646-2adc-4f57-885c-a2a005cec297",
+    "time": "2025-08-01T23:27:26.954+00:00",
+    "deviceInfo": {
+        "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+        "tenantName": "Example Tenant",
+        "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+        "applicationName": "Example Application",
+        "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+        "deviceProfileName": "NanoTag - US915",
+        "deviceName": "Example Device",
+        "devEui": "0123456789abcdef",
+        "deviceClassEnabled": "CLASS_A",
+        "tags": {}
+    },
+    "margin": 6,
+    "externalPowerSource": true,
+    "batteryLevelUnavailable": false,
+    "batteryLevel": 0
+}

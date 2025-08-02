@@ -1,0 +1,77 @@
+{
+    "deduplicationId": "7280e2f6-64b9-4b41-a3cd-55cc1bc7d521",
+    "time": "2025-08-01T23:26:56.954+00:00",
+    "deviceInfo": {
+        "tenantId": "2f78609d-a859-41b9-8d19-2c06e2edd5b4",
+        "tenantName": "Example Tenant",
+        "applicationId": "dbdb767f-5dc0-429b-bdbc-9390f5140098",
+        "applicationName": "Example Application",
+        "deviceProfileId": "178334ee-63f9-444e-b19d-5b4f302b9148",
+        "deviceProfileName": "NanoTag - US915",
+        "deviceName": "Example Device",
+        "devEui": "0123456789abcdef",
+        "deviceClassEnabled": "CLASS_A",
+        "tags": {}
+    },
+    "devAddr": "78000004",
+    "adr": false,
+    "dr": 0,
+    "fCnt": 1,
+    "fPort": 28,
+    "confirmed": false,
+    "data": "TAvy",
+    "object": {
+        "uplinkType": "configuration_request"
+    },
+    "rxInfo": [
+        {
+            "gatewayId": "fc658cc9d30d08fe",
+            "uplinkId": 46779,
+            "gwTime": "2025-08-01T23:26:56.954+00:00",
+            "nsTime": "2025-08-01T23:26:57.113594744+00:00",
+            "rssi": -128,
+            "snr": -16.2,
+            "context": "4sXGSA==",
+            "metadata": {
+                "gateway_lat": "32.757496091277147",
+                "gateway_name": "dancing-daffodil-cheetah",
+                "regi": "US915",
+                "gateway_long": "-117.114778638004736",
+                "network": "helium_iot",
+                "gateway_h3index": "8c29a41aa643bff",
+                "gateway_id": "112RWpZjJ5CEfQCc2ac1WfSV2kVo6gZFj5KvPWKZcXpxGhdjC4Cf"
+            },
+            "crcStatus": "CRC_OK"
+        },
+        {
+            "gatewayId": "4c2df4804f9994f9",
+            "uplinkId": 22690,
+            "gwTime": "2025-08-01T23:26:56.952+00:00",
+            "nsTime": "2025-08-01T23:26:57.052179118+00:00",
+            "rssi": -65,
+            "snr": 13,
+            "context": "4rcaqA==",
+            "metadata": {
+                "gateway_name": "sweet-sage-pike",
+                "gateway_lat": "32.767389594032025",
+                "regi": "US915",
+                "gateway_id": "112W2cDHgNsSPpRd42teoCwZAZMsGFifodvBpQgeUDRcc8E2koPn",
+                "gateway_long": "-117.116476590884162",
+                "gateway_h3index": "8c29a418c176dff",
+                "network": "helium_iot"
+            },
+            "crcStatus": "CRC_OK"
+        }
+    ],
+    "txInfo": {
+        "frequency": 905100000,
+        "modulation": {
+            "lora": {
+                "bandwidth": 125000,
+                "spreadingFactor": 10,
+                "codeRate": "CR_4_5"
+            }
+        }
+    },
+    "regionConfigId": "us915_1"
+}
