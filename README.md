@@ -1,6 +1,6 @@
 # Nanothings Nanotag Configuration Tools
  
-You used to be able to go to a Nanothings/Nanotags site and configure downloads, but that page has been removed.  Teague found it on the Wayback Machine, but that's a PITA to use.
+You used to be able to go to a Nanothings/Nanotags site and configure downloads, but that page has been removed.  Teague [found it on the Wayback Machine](https://web.archive.org/web/20241208203034/https://www.nanothingsinc.com/configuration-response-downlink-encoder), but that's a PITA to use.
 
 Me & Cursor built this so I could embed it on the MetSci site and just make it generally available.
 
