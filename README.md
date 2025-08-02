@@ -1,6 +1,6 @@
 # Nanothings Nanotag Configuration Tools 🏷️
  
-You used to be able to go to a Nanothings/Nanotags site and configure downloads, but that page has been removed.  Teague find it on the Wayback Machine, but that's a PITA to use.
+You used to be able to go to a Nanothings/Nanotags site and configure downloads, but that page has been removed.  Teague found it on the Wayback Machine, but that's a PITA to use.
 
 Me & Cursor built this so I could embed it on the MetSci site and just make it generally available.
 
@@ -36,7 +36,7 @@ nanothings/
 │   ├── integration-guide.md       # Setup instructions
 │   └── example-page.mdx           # Example documentation page
 ├── docs/               # Documentation
-│   ├── payload_format_discovery.md
+│   ├── payload_format.md
 │   ├── configuration_guide.md
 │   └── technical_specs.txt
 ├── reference/          # Reference data
