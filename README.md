@@ -53,7 +53,7 @@ nanothings/
 
 - **Encoding**: Big-endian 16-bit integers
 - **Units**: Always seconds
-- **fPort**: 25 (configuration port)
+- **fPort**: 28 (minutes) or 29 (seconds)
 
 | Configuration | Payload | Breakdown |
 |---------------|---------|-----------|
@@ -89,10 +89,16 @@ import NanotagConfigurator from '@site/src/components/NanotagConfigurator';
 
 1. **Generate payload** using any of the tools
 2. **Send downlink** via ChirpStack console:
-   - **fPort**: 25
+   - **fPort**: 28 (for minutes) or 29 (for seconds)
    - **Payload**: Generated hex (e.g., `003C003C`)
    - **Confirmed**: Recommended
 3. **Verify**: Device should acknowledge on fPort 25
+
+## 📋 **fPort Selection - Minutes vs Seconds**
+
+- **fPort 28**: Send when values are in **minutes** (e.g., `00010001` = 1min/1min)
+- **fPort 29**: Send when values are in **seconds** (e.g., `003C003C` = 60s/60s) 
+- **fPort 25**: Device **acknowledges** configuration (read-only)
 
 ## 🔧 **How It Works**
 

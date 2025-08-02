@@ -2,6 +2,23 @@
 
 All notable changes to the Nanothings Nanotag Configuration Tools project.
 
+## [1.1.0] - 2025-08-02
+
+### 🔧 **Updated fPort Configuration**
+
+- Corrected fPort usage based on original Nanothings documentation
+- **fPort 28**: For sending values in minutes 
+- **fPort 29**: For sending values in seconds
+- **fPort 25**: Device acknowledges configuration (read-only)
+
+### 📊 **Documentation Updates**
+
+- Updated README with correct fPort information
+- Added fPort selection guidance  
+- Cleaned PII from test data files
+
+---
+
 ## [1.0.0] - 2025-01-01
 
 ### ✅ **Initial Release**
@@ -23,7 +40,7 @@ Complete toolkit for configuring Nanothings Nanotag devices via LoRaWAN downlink
 
 - **Format**: 4-byte big-endian configuration payloads
 - **Structure**: `[2-byte record seconds][2-byte report seconds]`
-- **fPort**: 25 (LoRaWAN configuration port)
+- **fPort**: 28/29 (LoRaWAN configuration ports)
 - **Verified**: All tools generate identical payloads
 
 ### 📚 **Documentation**
