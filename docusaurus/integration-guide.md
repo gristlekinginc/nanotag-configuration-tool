@@ -1,6 +1,6 @@
-# Embedding the Nanotag Configurator in Docusaurus ✅ UPDATED
+# Embedding the Nanotag Configurator in Docusaurus 
 
-You have several options for embedding the configurator in your Docusaurus site. **No Cloudflare Worker needed** - it's all client-side!
+You have several options for embedding the configurator in your Docusaurus site.
 
 **🎯 FEATURES**: Complete React component with verified 4-byte payload format and theme integration.
 
