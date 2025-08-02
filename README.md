@@ -4,7 +4,7 @@ You used to be able to go to a Nanothings/Nanotags site and configure downloads,
 
 Me & Cursor built this so I could embed it on the MetSci site and just make it generally available.
 
-This works on the [MetSci Console](https://console.meteoscientific.com/front/).
+This works if you're using the [MetSci Console](https://console.meteoscientific.com/front/), and (I imagine) any other LNS.
 
 The only thing that'll really catch you out is not remembering that Port 28 is for minutes and Port 29 is for seconds.  Ask me how I know.
 
