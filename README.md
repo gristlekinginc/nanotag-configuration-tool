@@ -1,6 +1,8 @@
 # Nanothings Nanotag Configuration Tools 🏷️
+ 
+You used to be able to go to a Nanothings/Nanotags site and configure downloads, but that page has been removed.  Teague find it on the Wayback Machine, but that's a PITA to use.
 
-**A complete suite of tools for configuring Nanothings Nanotags via LoRaWAN downlinks.**
+Me & Cursor built this so I could embed it on the MetSci site and just make it generally available.
 
 **Status**: ✅ **Ready** - All tools verified and tested
 
