@@ -23,15 +23,24 @@ function show_help() {
     echo "Example: $0 1min"
 }
 
-function generate_hex() {
+function generate_config() {
     local record=$1
     local report=$2
     local unit=$3
     
-    # Convert to seconds (unit: 0=minutes, 1=seconds)
+    # Validate that report period is multiple of record period
+    if [ $((report % record)) -ne 0 ]; then
+        echo "Error: Report period must be a multiple of record period" >&2
+        exit 1
+    fi
+    
+    # Use raw values (not converted to seconds)
+    # Port determines the time unit: 28 = minutes, 29 = seconds
+    local port
     if [ $unit -eq 0 ]; then
-        record=$((record * 60))
-        report=$((report * 60))
+        port=28
+    else
+        port=29
     fi
     
     # Convert to hex (big endian, 2 bytes each)
@@ -39,7 +48,12 @@ function generate_hex() {
     local report_hex=$(printf "%04X" $report)
     
     # Build payload: record_period + report_period (4 bytes total)
-    echo "${record_hex}${report_hex}"
+    local hex_payload="${record_hex}${report_hex}"
+    
+    # Generate base64 for Helium
+    local base64_payload=$(echo -n $hex_payload | xxd -r -p | base64)
+    
+    echo "$hex_payload,$base64_payload,$port"
 }
 
 function show_config() {
@@ -47,37 +61,41 @@ function show_config() {
     local record=$2
     local report=$3
     local unit_name=$4
-    local hex_payload=$5
+    local config_result=$5
+    
+    IFS=',' read -r hex_payload base64_payload port <<< "$config_result"
     
     echo -e "${GREEN}Configuration: ${preset}${NC}"
     echo -e "Record Period: ${record} ${unit_name}"
     echo -e "Report Period: ${report} ${unit_name}"
     echo ""
     echo -e "${YELLOW}DOWNLINK DETAILS:${NC}"
-    echo -e "  fPort: 25"
-    echo -e "  Payload: ${hex_payload}"
+    echo -e "  fPort: ${port} (${unit_name})"
+    echo -e "  Hex Payload: ${hex_payload}"
+    echo -e "  Base64 Payload: ${base64_payload} (for Helium)"
     echo ""
-    echo -e "${BLUE}Copy this payload and send via ChirpStack Queue tab${NC}"
+    echo -e "${BLUE}Copy the appropriate payload and send via ChirpStack Queue tab${NC}"
+    echo -e "${BLUE}Use confirmed downlinks for best reliability on Helium${NC}"
     echo "======================================================"
 }
 
 # Main logic
 case "${1:-help}" in
     "1min")
-        hex=$(generate_hex 60 60 1)
-        show_config "1 Minute Interval" 60 60 "seconds" $hex
+        config=$(generate_config 1 1 0)
+        show_config "1 Minute Interval" 1 1 "minutes" "$config"
         ;;
     "5min")
-        hex=$(generate_hex 300 300 1)
-        show_config "5 Minutes Interval" 300 300 "seconds" $hex
+        config=$(generate_config 5 5 0)
+        show_config "5 Minutes Interval" 5 5 "minutes" "$config"
         ;;
     "30min")
-        hex=$(generate_hex 1800 1800 1)
-        show_config "30 Minutes Interval" 1800 1800 "seconds" $hex
+        config=$(generate_config 30 30 0)
+        show_config "30 Minutes Interval" 30 30 "minutes" "$config"
         ;;
     "1hour")
-        hex=$(generate_hex 3600 3600 1)
-        show_config "1 Hour Interval" 3600 3600 "seconds" $hex
+        config=$(generate_config 60 60 0)
+        show_config "1 Hour Interval" 60 60 "minutes" "$config"
         ;;
     "help"|*)
         show_help

@@ -112,15 +112,16 @@
             <h3>📊 Configuration Tool</h3>
             <p><strong>Format:</strong> 4-byte verified payload for Nanothings Nanotags</p>
             <p><strong>Compatibility:</strong> All Nanothings Nanotag devices</p>
-            <p><strong>Target fPort:</strong> 25 (configuration port)</p>
+            <p><strong>fPorts:</strong> 28 (minutes) or 29 (seconds)</p>
+            <p><strong>Acknowledgement:</strong> Device responds on fPort 25</p>
         </div>
 
         <div class="section">
             <h3>⚡ Quick Presets</h3>
-            <button class="preset-btn" onclick="setPreset(60, 60, 1)">1 Minute Interval</button>
-            <button class="preset-btn" onclick="setPreset(300, 300, 1)">5 Minutes Interval</button>
-            <button class="preset-btn" onclick="setPreset(1800, 1800, 1)">30 Minutes Interval</button>
-            <button class="preset-btn" onclick="setPreset(3600, 3600, 1)">1 Hour Interval</button>
+            <button class="preset-btn" onclick="setPreset(1, 1, 0)">1 Minute Interval</button>
+            <button class="preset-btn" onclick="setPreset(5, 5, 0)">5 Minutes Interval</button>
+            <button class="preset-btn" onclick="setPreset(30, 30, 0)">30 Minutes Interval</button>
+            <button class="preset-btn" onclick="setPreset(60, 60, 0)">1 Hour Interval</button>
         </div>
 
         <div class="section">
@@ -128,19 +129,19 @@
             
             <div class="input-group">
                 <label for="recordPeriod">Record Period:</label>
-                <input type="number" id="recordPeriod" value="60" min="1" max="65535">
+                <input type="number" id="recordPeriod" value="1" min="1" max="65535">
             </div>
             
             <div class="input-group">
                 <label for="reportPeriod">Report Period:</label>
-                <input type="number" id="reportPeriod" value="60" min="1" max="65535">
+                <input type="number" id="reportPeriod" value="1" min="1" max="65535">
             </div>
             
             <div class="input-group">
                 <label for="timeUnit">Time Unit:</label>
                 <select id="timeUnit">
-                    <option value="0">Minutes</option>
-                    <option value="1" selected>Seconds</option>
+                    <option value="0" selected>Minutes</option>
+                    <option value="1">Seconds</option>
                 </select>
             </div>
             
@@ -150,9 +151,6 @@
         <div id="result" style="display: none;">
             <div class="result">
                 <h3>📤 Downlink Configuration</h3>
-                <p><strong>fPort:</strong> 25</p>
-                <p><strong>Hex Payload:</strong></p>
-                <div class="hex-output" id="hexPayload"></div>
                 <div id="configDetails"></div>
             </div>
         </div>
@@ -164,12 +162,17 @@
                 <li>Navigate to your application and device</li>
                 <li>Go to the "Queue" tab</li>
                 <li>Click "Enqueue downlink"</li>
-                <li>Set fPort to <strong>25</strong></li>
-                <li>Paste the generated hex payload</li>
-                <li>Set confirmed to <strong>true</strong> (recommended)</li>
+                <li>Set fPort to <strong>28</strong> (minutes) or <strong>29</strong> (seconds)</li>
+                <li>Paste the generated hex payload (or base64 for Helium)</li>
+                <li>Set confirmed to <strong>true</strong> (recommended, especially for Helium)</li>
                 <li>Click "Enqueue"</li>
             </ol>
-            <p><em>💡 Tip: The device will acknowledge the configuration on fPort 25 when it receives and applies the new settings.</em></p>
+            <p><em>💡 Tips:</em></p>
+            <ul>
+                <li><em>Device acknowledges configuration on fPort 25</em></li>
+                <li><em>Report period must be a multiple of record period</em></li>
+                <li><em>Use confirmed downlinks for better reliability on Helium network</em></li>
+            </ul>
         </div>
     </div>
 
@@ -195,19 +198,30 @@
                 alert('Report period must be between 1 and 65535');
                 return;
             }
+            
+            // Validate that report period is equal to or a multiple of record period
+            if (reportPeriod < recordPeriod) {
+                alert('Report period cannot be shorter than record period. You cannot report data more frequently than you record it.');
+                return;
+            }
+            if (reportPeriod % recordPeriod !== 0) {
+                alert('Report period must be equal to or a multiple of the record period. For example, if recording every 5 minutes, you can report every 5, 10, 15, 20 minutes, etc.');
+                return;
+            }
 
-            // Generate hex payload using official Nanothings format:
-            // Bytes 0-1: Record period in seconds (big endian)
-            // Bytes 2-3: Report period in seconds (big endian)
+            // Use raw values (not converted to seconds)
+            // Port determines the time unit: 28 = minutes, 29 = seconds
+            const port = timeUnit === 0 ? 28 : 29;
             
-            // Convert to seconds if needed
-            const recordSeconds = recordPeriod * (timeUnit === 0 ? 60 : 1);
-            const reportSeconds = reportPeriod * (timeUnit === 0 ? 60 : 1);
-            
-            const recordHex = recordSeconds.toString(16).padStart(4, '0').toUpperCase();
-            const reportHex = reportSeconds.toString(16).padStart(4, '0').toUpperCase();
+            const recordHex = recordPeriod.toString(16).padStart(4, '0').toUpperCase();
+            const reportHex = reportPeriod.toString(16).padStart(4, '0').toUpperCase();
             
             const hexPayload = recordHex + reportHex;
+            
+            // Generate base64 for Helium network
+            const hexBytes = hexPayload.match(/.{2}/g).map(byte => parseInt(byte, 16));
+            const uint8Array = new Uint8Array(hexBytes);
+            const base64Payload = btoa(String.fromCharCode(...uint8Array));
             
             // Display result
             document.getElementById('hexPayload').textContent = hexPayload;
@@ -216,11 +230,15 @@
             const configDetails = `
                 <p><strong>Configuration Details:</strong></p>
                 <ul>
-                    <li>Record Period: ${recordPeriod} ${unitText} (${recordSeconds} seconds)</li>
-                    <li>Report Period: ${reportPeriod} ${unitText} (${reportSeconds} seconds)</li>
+                    <li>Record Period: ${recordPeriod} ${unitText}</li>
+                    <li>Report Period: ${reportPeriod} ${unitText}</li>
+                    <li>Target fPort: ${port} (${unitText})</li>
+                    <li>Hex Payload: ${hexPayload}</li>
+                    <li>Base64 Payload: ${base64Payload} (for Helium)</li>
                     <li>Payload Length: 4 bytes</li>
                 </ul>
-                <p><em>The device will send data every ${reportPeriod} ${unitText} and record measurements every ${recordPeriod} ${unitText}.</em></p>
+                <p><em>The device will record measurements every ${recordPeriod} ${unitText} and send data every ${reportPeriod} ${unitText}.</em></p>
+                <p><em><strong>For Helium Network:</strong> Use Base64 payload and enable confirmed downlinks for best delivery reliability.</em></p>
             `;
             
             document.getElementById('configDetails').innerHTML = configDetails;

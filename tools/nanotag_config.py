@@ -26,7 +26,7 @@ def generate_config_payload(record_period, report_period, time_unit):
         time_unit (str): 'minutes' or 'seconds'
     
     Returns:
-        str: Hex payload for fPort 25 downlink
+        tuple: (hex_payload, base64_payload, port)
     """
     
     # Validate inputs
@@ -39,25 +39,29 @@ def generate_config_payload(record_period, report_period, time_unit):
     if time_unit not in ['minutes', 'seconds']:
         raise ValueError("Time unit must be 'minutes' or 'seconds'")
     
-    # Convert time unit to numeric
-    unit_code = 0 if time_unit == 'minutes' else 1
+    # Validate that report period is equal to or a multiple of record period
+    if report_period < record_period:
+        raise ValueError("Report period cannot be shorter than record period")
     
-    # Build payload based on official Nanothings format:
-    # Bytes 0-1: Record period in seconds (big endian, 2 bytes)
-    # Bytes 2-3: Report period in seconds (big endian, 2 bytes)
+    if report_period % record_period != 0:
+        raise ValueError("Report period must be equal to or a multiple of the record period")
     
-    # Convert to seconds if needed
-    record_seconds = record_period * (60 if time_unit == 'minutes' else 1)
-    report_seconds = report_period * (60 if time_unit == 'minutes' else 1)
+    # Build payload using raw values (not converted to seconds)
+    # Port determines the time unit: 28 = minutes, 29 = seconds
+    port = 28 if time_unit == 'minutes' else 29
     
-    record_bytes = record_seconds.to_bytes(2, 'big')
-    report_bytes = report_seconds.to_bytes(2, 'big')
+    record_bytes = record_period.to_bytes(2, 'big')
+    report_bytes = report_period.to_bytes(2, 'big')
     
     # Combine bytes (4 bytes total)
     payload = record_bytes + report_bytes
     hex_payload = payload.hex().upper()
     
-    return hex_payload
+    # Generate base64 for Helium network
+    import base64
+    base64_payload = base64.b64encode(payload).decode('ascii')
+    
+    return hex_payload, base64_payload, port
 
 
 def get_preset_config(preset):
@@ -123,7 +127,7 @@ Presets available: 30sec, 1min, 5min, 30min, 1hour
             config_name = f"{record}-{report}-{unit}"
         
         # Generate payload
-        hex_payload = generate_config_payload(record, report, unit)
+        hex_payload, base64_payload, port = generate_config_payload(record, report, unit)
         
         # Display results
         print("=" * 60)
@@ -134,17 +138,18 @@ Presets available: 30sec, 1min, 5min, 30min, 1hour
         print(f"Report Period: {report} {unit}")
         print()
         print("DOWNLINK DETAILS:")
-        print(f"  fPort: 25")
-        print(f"  Payload: {hex_payload}")
+        print(f"  fPort: {port} ({'minutes' if port == 28 else 'seconds'})")
+        print(f"  Hex Payload: {hex_payload}")
+        print(f"  Base64 Payload: {base64_payload}")
         print(f"  Length: {len(hex_payload)//2} bytes")
         print()
         print("CHIRPSTACK INSTRUCTIONS:")
         print("1. Log into your ChirpStack console")
         print("2. Navigate to your application and device")
         print("3. Go to Queue tab → Enqueue downlink")
-        print("4. Set fPort: 25")
-        print(f"5. Set payload: {hex_payload}")
-        print("6. Set confirmed: true (recommended)")
+        print(f"4. Set fPort: {port}")
+        print(f"5. Set payload: {hex_payload} (or {base64_payload} for Helium)")
+        print("6. Set confirmed: true (recommended, especially for Helium)")
         print("7. Click Enqueue")
         print()
         print("The device will acknowledge the new configuration on fPort 25.")

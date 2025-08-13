@@ -5,31 +5,43 @@
  */
 
 function generateConfig(record, report, unit) {
-  // Convert to seconds if needed
-  const recordSeconds = record * (unit === 0 ? 60 : 1);
-  const reportSeconds = report * (unit === 0 ? 60 : 1);
+  // Validate that report period is multiple of record period
+  if (report % record !== 0) {
+    throw new Error('Report period must be a multiple of record period');
+  }
   
-  const recordHex = recordSeconds.toString(16).padStart(4, '0').toUpperCase();
-  const reportHex = reportSeconds.toString(16).padStart(4, '0').toUpperCase();
+  // Use raw values (not converted to seconds)
+  // Port determines the time unit: 28 = minutes, 29 = seconds
+  const port = unit === 0 ? 28 : 29;
+  
+  const recordHex = record.toString(16).padStart(4, '0').toUpperCase();
+  const reportHex = report.toString(16).padStart(4, '0').toUpperCase();
   
   const hexPayload = recordHex + reportHex;
   
+  // Calculate actual seconds for display purposes
+  const recordSeconds = record * (unit === 0 ? 60 : 1);
+  const reportSeconds = report * (unit === 0 ? 60 : 1);
+  
   return {
     hexPayload,
+    port,
+    record,
+    report,
     recordSeconds,
     reportSeconds,
     unitText: unit === 0 ? 'minutes' : 'seconds'
   };
 }
 
-// Verified test cases for payload generation
+// Verified test cases for payload generation (using correct raw value format)
 const testCases = [
-  { record: 1, report: 1, unit: 0, expected: '003C003C', desc: '1 minute intervals' },
-  { record: 5, report: 5, unit: 0, expected: '012C012C', desc: '5 minute intervals' },
-  { record: 30, report: 30, unit: 0, expected: '07080708', desc: '30 minute intervals' },
-  { record: 60, report: 60, unit: 0, expected: '0E100E10', desc: '1 hour intervals' },
-  { record: 10, report: 30, unit: 1, expected: '000A001E', desc: '10s record, 30s report' },
-  { record: 300, report: 300, unit: 1, expected: '012C012C', desc: '300s intervals' }
+  { record: 1, report: 1, unit: 0, expected: '00010001', desc: '1 minute intervals', port: 28 },
+  { record: 5, report: 5, unit: 0, expected: '00050005', desc: '5 minute intervals', port: 28 },
+  { record: 5, report: 10, unit: 0, expected: '0005000A', desc: '5min record, 10min report', port: 28 },
+  { record: 30, report: 30, unit: 0, expected: '001E001E', desc: '30 minute intervals', port: 28 },
+  { record: 60, report: 60, unit: 1, expected: '003C003C', desc: '60 second intervals', port: 29 },
+  { record: 300, report: 600, unit: 1, expected: '012C0258', desc: '5min record, 10min report (seconds)', port: 29 }
 ];
 
 console.log('🧪 Testing React Component Payload Generation\n');
@@ -44,9 +56,9 @@ testCases.forEach((test, index) => {
   
   console.log(`${status} Test ${index + 1}: ${test.desc}`);
   console.log(`   Input: ${test.record} ${result.unitText}, ${test.report} ${result.unitText}`);
-  console.log(`   Expected: ${test.expected}`);
-  console.log(`   Generated: ${result.hexPayload}`);
-  console.log(`   Seconds: ${result.recordSeconds}s record, ${result.reportSeconds}s report`);
+  console.log(`   Expected: ${test.expected} (port ${test.port})`);
+  console.log(`   Generated: ${result.hexPayload} (port ${result.port})`);
+  console.log(`   Equivalent: ${result.recordSeconds}s record, ${result.reportSeconds}s report`);
   console.log('');
   
   if (!passed) allPassed = false;
